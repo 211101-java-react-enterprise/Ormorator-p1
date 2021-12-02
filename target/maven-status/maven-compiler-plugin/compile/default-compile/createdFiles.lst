@@ -1,0 +1,4 @@
+com\revature\orm\SQLMapper.class
+com\revature\orm\ConnectionFactory.class
+com\revature\orm\annotations\Table.class
+com\revature\orm\annotations\Column.class
