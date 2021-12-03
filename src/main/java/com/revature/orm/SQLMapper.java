@@ -2,6 +2,7 @@ package com.revature.orm;
 
 import com.revature.orm.annotations.Column;
 import com.revature.orm.annotations.Table;
+import com.revature.orm.util.ConnectionFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
