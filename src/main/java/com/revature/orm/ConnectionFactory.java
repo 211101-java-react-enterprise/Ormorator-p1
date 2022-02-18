@@ -10,24 +10,19 @@ public class ConnectionFactory {
 
     private static final ConnectionFactory connectionFactory =
             new ConnectionFactory();
-    private final Properties props = new Properties();
+    private static final Properties props = new Properties();
 
     static {
         try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
+            ClassLoader loader = Thread.currentThread().getContextClassLoader();
+            props.load(loader.getResourceAsStream("db.properties"));
+            Class.forName(props.getProperty("dbDriver"));
+        } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
     }
 
-    private ConnectionFactory() {
-        try {
-            ClassLoader loader = Thread.currentThread().getContextClassLoader();
-            props.load(loader.getResourceAsStream("db.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    private ConnectionFactory() {}
 
     public static ConnectionFactory getInstance() { return connectionFactory; }
 
