@@ -1,4 +1,4 @@
-package com.revature.orm.util;
+package com.revature.orm;
 
 import java.io.IOException;
 import java.sql.Connection;
